@@ -57,6 +57,9 @@ export type Tool = typeof TOOL_AUTO | typeof TOOL_NONE | typeof TOOL_PAN |
 export type ToolbarPosition = typeof POSITION_NONE | typeof POSITION_TOP | typeof POSITION_RIGHT |
                                         typeof POSITION_BOTTOM | typeof POSITION_LEFT;
 
+export type Align = typeof ALIGN_CENTER | typeof ALIGN_LEFT | typeof ALIGN_RIGHT |
+                                        typeof ALIGN_TOP | typeof ALIGN_BOTTOM;
+
 export interface OptionalProps {
     // background of the viewer
     background: string;
@@ -124,7 +127,7 @@ export interface OptionalProps {
     scaleFactorOnWheel: number;
 
     // maximum amount of scale a user can zoom in to
-  scaleFactorMax: number;
+    scaleFactorMax: number;
 
   // minimum amount of a scale a user can zoom out of
     scaleFactorMin: number;
@@ -250,7 +253,7 @@ export function zoom(value: Value, SVGPointX: number, SVGPointY: number, scaleFa
 export function fitSelection(
     value: Value, selectionSVGPointX: number, selectionSVGPointY: number, selectionWidth: number, selectionHeight: number): Value;
 
-export function fitToViewer(value: Value): Value;
+export function fitToViewer(value: Value, SVGAlignX?: Align, SVGAlignY?: Align): Value;
 
 export function zoomOnViewerCenter(value: Value, scaleFactor: number): Value;
 
